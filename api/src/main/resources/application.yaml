@@ -2,11 +2,12 @@ server:
   port: 8080
 
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/recharge
-    username: recharge
-    password: recharge
-
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-response: true
   jpa:
     hibernate:
       ddl-auto: validate
