@@ -102,40 +102,34 @@ git clone https://github.com/joao-vitorb/recharge-system.git
 cd recharge-system
 ```
 
-### 2) Subir infraestrutura (Postgres + RabbitMQ)
+### 2) Subir tudo com Docker Compose (Postgres + RabbitMQ + API + Platform)
 
 ```
-docker compose up -d
+docker compose up -d --build
 docker compose ps
 ```
 
-### 3) Rodar a API
+#### Acessos
 
-#### Windows (PowerShell)
-```powershell
-cd api
-.\mvnw.cmd spring-boot:run
+#### API: `http://localhost:8080`
+#### RabbitMQ UI: `http://localhost:15672` (user/pass: guest / guest)
+
+### 3) Ver logs (opcional)
+
+```
+docker compose logs -f api
 ```
 
-#### Linux/macOS (bash/zsh)
-```bash
-cd api
-./mvnw spring-boot:run
+#### Em outro terminal
+
 ```
-#### A API sobe em: `http://localhost:8080`
-
-### 4) Rodar a Platform
-
-#### Windows (PowerShell)
-```powershell
-cd platform
-.\mvnw.cmd spring-boot:run
+docker compose logs -f platform
 ```
 
-#### Linux/macOS (bash/zsh)
-```bash
-cd platform
-./mvnw spring-boot:run
+### 4) Parar tudo (opcional)
+
+```
+docker compose down
 ```
 
 ---
