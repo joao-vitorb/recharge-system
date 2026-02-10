@@ -173,6 +173,8 @@ curl -X POST "http://localhost:8080/api/v1/clients" \
   -d '{"name":"Joao","phone":"31999999999"}'
 ```
 
+![Criar cliente](docs/images/01-create-client.png)
+
 ### 2) Criar payment (clientId = 1)
 
 #### Windows (PowerShell)
@@ -189,6 +191,8 @@ curl -X POST "http://localhost:8080/api/v1/clients/1/payments" \
   -H "Content-Type: application/json" \
   -d '{"type":"PIX","token":"pix_key_123"}'
 ```
+
+![Criar pagamento](docs/images/02-create-payment.png)
 
 ### 3) Criar recarga (PENDING → SUCCESS/FAILED)
 
@@ -207,6 +211,8 @@ curl -X POST "http://localhost:8080/api/v1/recharges" \
   -d '{"clientId":1,"paymentId":1,"phone":"31999999999","amount":50.00}'
 ```
 
+![Criar recarga](docs/images/03-create-recharge.png)
+
 #### A resposta inicial tende a voltar com `status: PENDING`
 
 ### 4) Listar recargas (clientId = 1)
@@ -221,6 +227,8 @@ Invoke-RestMethod -Method GET `
 ```bash
 curl "http://localhost:8080/api/v1/clients/1/recharges"
 ```
+
+![Listar recargas](docs/images/04-list-recharges.png)
 
 ### 5) Testar falha (mock da Platform)
 
@@ -240,6 +248,8 @@ curl -X POST "http://localhost:8080/api/v1/recharges" \
 ```
 
 #### Depois liste de novo e verifique `FAILED` + `failureReason`
+
+![Teste de erro](docs/images/05-fail-test.png)
 
 ---
 
