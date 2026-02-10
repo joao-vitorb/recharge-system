@@ -160,9 +160,10 @@ docker compose down
 
 #### Windows (PowerShell)
 ```powershell
-curl.exe -X POST "http://localhost:8080/api/v1/clients" `
-  -H "Content-Type: application/json; charset=utf-8" `
-  -d "{\"name\":\"Joao\",\"phone\":\"31999999999\"}"
+Invoke-RestMethod -Method POST `
+  -Uri "http://localhost:8080/api/v1/clients" `
+  -ContentType "application/json; charset=utf-8" `
+  -Body '{"name":"Joao","phone":"31999999999"}'
 ```
 
 #### Linux/macOS (bash/zsh)
